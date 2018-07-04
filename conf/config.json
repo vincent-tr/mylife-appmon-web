@@ -1,1 +1,13 @@
-{}
+{
+  "repository" : {
+    "port" : 8899
+  },
+  "agent" : {
+    "agentId" : "host-agent",
+    "url" : "http://localhost:8899",
+    "builtins" : [ "base:heap", "base:process", "base:os" ]
+  },
+  "viewer" : {
+    "url" : "http://localhost:8899"
+  }
+}

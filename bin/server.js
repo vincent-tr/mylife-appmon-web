@@ -3,6 +3,7 @@
 const { ArgumentParser } = require('argparse');
 const { service } = require('mylife-appmon');
 const Server = require('../lib/server');
+const config = require('../conf/config');
 
 const debug = require('debug')('mylife:appmon:web:bin:server');
 
@@ -30,13 +31,20 @@ async function start() {
   debug(`Starting server (port=${args.port}, dev=${args.dev})`);
 
   // TODO: config
-  service.setupRepository(12345);
-  service.setupLocalAgent({ builtins : [ 'base:heap', 'base:process', 'base:os' ] });
+  const { repository, agent, viewer } = config;
+  if(repository) {
+    debug('repoitory setup');
+    service.setupRepository(repository.port);
+  }
+  if(agent) {
+    debug('agent setup');
+    service.setupAgent(agent);
+  }
 
   server = new Server({
     port : args.port,
     dev : args.dev,
-    repositoryUrl : 'http://localhost:12345'
+    repositoryUrl : viewer.url
   });
 }
 
