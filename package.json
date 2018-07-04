@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint lib/* public/app/* test/*",
+    "lint": "eslint lib/* public/app/*",
     "bundle": "webpack --config webpack.config.js --mode=production",
     "start:dev": "DEBUG=mylife:appmon:* node bin/server.js --port 8011 --dev",
     "start:docker": "DEBUG=mylife:appmon:* node bin/server.js --port 8080"
