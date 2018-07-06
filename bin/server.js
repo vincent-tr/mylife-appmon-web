@@ -30,11 +30,10 @@ async function start() {
 
   debug(`Starting server (port=${args.port}, dev=${args.dev})`);
 
-  // TODO: config
   const { repository, agent, viewer } = config;
   if(repository) {
-    debug('repoitory setup');
-    service.setupRepository(repository.port);
+    debug('repository setup');
+    service.setupRepository(repository);
   }
   if(agent) {
     debug('agent setup');
