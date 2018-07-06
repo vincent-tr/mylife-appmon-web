@@ -5,6 +5,7 @@ import StoreProvider from './base/store-provider';
 import DialogOffline from './base/dialog-offline';
 import DialogError   from './base/dialog-error';
 import DialogInfo    from './base/dialog-info';
+import TreeView      from './treeview';
 
 const Application = () => (
   <StoreProvider>
@@ -12,7 +13,7 @@ const Application = () => (
       <DialogOffline />
       <DialogError />
       <DialogInfo />
-      Hello!
+      <TreeView />
     </React.Fragment>
   </StoreProvider>
 );
