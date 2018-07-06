@@ -1,16 +1,16 @@
 'use strict';
 
-import React                     from 'react';
-import PropTypes                 from 'prop-types';
-import { connect }   from 'react-redux';
+import React       from 'react';
+import PropTypes   from 'prop-types';
+import { connect } from 'react-redux';
 
-import Button from '@material-ui/core/Button';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
+import Button            from '@material-ui/core/Button';
+import Dialog            from '@material-ui/core/Dialog';
+import DialogActions     from '@material-ui/core/DialogActions';
+import DialogContent     from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
-import InfoIcon from '@material-ui/icons/Info';
+import DialogTitle       from '@material-ui/core/DialogTitle';
+import InfoIcon          from '@material-ui/icons/Info';
 
 import { getInfo }   from '../../selectors/dialogs';
 import { clearInfo } from '../../actions/dialogs';
