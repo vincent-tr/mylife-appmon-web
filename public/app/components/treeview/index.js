@@ -4,15 +4,16 @@ import React       from 'react';
 import PropTypes   from 'prop-types';
 import { connect } from 'react-redux';
 
-import List from '@material-ui/core/List';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
-import AgentIcon from '@material-ui/icons/DesktopWindows';
-import ObjectIcon from '@material-ui/icons/Widgets';
+import List          from '@material-ui/core/List';
+import Grid          from '@material-ui/core/Grid';
+import Typography    from '@material-ui/core/Typography';
+import AgentIcon     from '@material-ui/icons/DesktopWindows';
+import ObjectIcon    from '@material-ui/icons/Widgets';
 import AttributeIcon from '@material-ui/icons/Build';
 
-import Item from './item';
+import Item           from './item';
 import ItemWithNested from './item-with-nested';
+import Value          from './value';
 
 import { getAgents } from '../../selectors/agents';
 
@@ -24,7 +25,7 @@ const AttributeItem = ({ attribute }) => (
           <Typography>{attribute.name}</Typography>
         </Grid>
         <Grid item xs={9}>
-          <Typography>{`${attribute.value}`}</Typography>
+          <Value value={attribute.value} />
         </Grid>
       </Grid>
     }
