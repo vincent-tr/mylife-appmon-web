@@ -4,6 +4,11 @@ import React       from 'react';
 import PropTypes   from 'prop-types';
 
 import Typography from '@material-ui/core/Typography';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 const NullValue = () => (
   <Typography>{'(null)'}</Typography>
@@ -34,26 +39,76 @@ BoolValue.propTypes = {
 };
 
 const ArrayValue = ({ value }) => (
-  <Typography>{JSON.stringify(value)}</Typography>
+  <Table>
+    <TableHead>
+      <TableRow>
+        <TableCell>Value</TableCell>
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      {value.map((value, index) => (
+        <TableRow key={index}>
+          <TableCell><Value value={value} /></TableCell>
+        </TableRow>
+      ))}
+    </TableBody>
+  </Table>
 );
 
 ArrayValue.propTypes = {
   value : PropTypes.array.isRequired
 };
 
-
 const ObjectValue = ({ value }) => (
-  <Typography>{JSON.stringify(value)}</Typography>
+  <Table>
+    <TableHead>
+      <TableRow>
+        <TableCell>Name</TableCell>
+        <TableCell>Value</TableCell>
+      </TableRow>
+    </TableHead>
+    <TableBody>
+      {Object.entries(value).map(([ key, value ]) => (
+        <TableRow key={key}>
+          <TableCell>{key}</TableCell>
+          <TableCell><Value value={value} /></TableCell>
+        </TableRow>
+      ))}
+    </TableBody>
+  </Table>
 );
 
 ObjectValue.propTypes = {
   value : PropTypes.object.isRequired
 };
 
+const TableValue = ({ value }) => {
+  const keys = Array.from(value.reduce((set, row) => {
+    Object.keys(row).forEach(key => set.add(key));
+    return set;
+  }, new Set()));
 
-const TableValue = ({ value }) => (
-  <Typography>{JSON.stringify(value)}</Typography>
-);
+  return (
+    <Table>
+      <TableHead>
+        <TableRow>
+          {keys.map(key => (<TableCell key={key}>{key}</TableCell>))}
+        </TableRow>
+      </TableHead>
+      <TableBody>
+        {value.map((row, index) => (
+          <TableRow key={index}>
+            {keys.map(key => (
+              <TableCell key={key}>
+                <Value value={row[key]} />
+              </TableCell>
+            ))}
+          </TableRow>
+        ))}
+      </TableBody>
+    </Table>
+  );
+};
 
 TableValue.propTypes = {
   value : PropTypes.arrayOf(PropTypes.object.isRequired).isRequired
