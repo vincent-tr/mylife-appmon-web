@@ -5,7 +5,7 @@
   "agent" : {
     "agentId" : "host-agent",
     "url" : "http://localhost:8899",
-    "builtins" : [ "base:heap", "base:process", "base:os" ]
+    "builtins" : [ "base:process", "base:machine" ]
   },
   "viewer" : {
     "url" : "http://localhost:8899"
