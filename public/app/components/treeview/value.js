@@ -4,14 +4,11 @@ import React       from 'react';
 import PropTypes   from 'prop-types';
 
 import Typography from '@material-ui/core/Typography';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Collapse from '@material-ui/core/Collapse';
-import ExpandLess     from '@material-ui/icons/ExpandLess';
-import ExpandMore     from '@material-ui/icons/ExpandMore';
+import Table      from '@material-ui/core/Table';
+import TableBody  from '@material-ui/core/TableBody';
+import TableCell  from '@material-ui/core/TableCell';
+import TableHead  from '@material-ui/core/TableHead';
+import TableRow   from '@material-ui/core/TableRow';
 
 const NullValue = () => (
   <Typography>{'(null)'}</Typography>
