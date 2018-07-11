@@ -1,16 +1,4 @@
 {
-  "repository" : {
-    "port" : 8899
-  },
-  "agent" : {
-    "agentId" : "host-agent",
-    "url" : "http://localhost:8899",
-    "objects" : [
-      { "name" : "base:process" },
-      { "name" : "base:machine" },
-      { "name" : "mongo:database", "plugin" : "mylife-appmon-plugin-mongo", "options" : { "url" : "mongodb://localhost:27017/merp-test" } }
-    ]
-  },
   "viewer" : {
     "url" : "http://localhost:8899"
   }

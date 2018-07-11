@@ -1,7 +1,6 @@
 'use strict';
 
 const { ArgumentParser } = require('argparse');
-const { service } = require('mylife-appmon');
 const Server = require('../lib/server');
 const config = require('../conf/config');
 
@@ -30,15 +29,7 @@ async function start() {
 
   debug(`Starting server (port=${args.port}, dev=${args.dev})`);
 
-  const { repository, agent, viewer } = config;
-  if(repository) {
-    debug('repository setup');
-    service.setupRepository(repository);
-  }
-  if(agent) {
-    debug('agent setup');
-    service.setupAgent(agent);
-  }
+  const { viewer } = config;
 
   server = new Server({
     port : args.port,
